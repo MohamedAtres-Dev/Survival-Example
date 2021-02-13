@@ -41,11 +41,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
-    {
-       
-    }
-
     #endregion
 
     private void MoveWithVector(Vector2 move)
@@ -72,20 +67,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.AddRelativeForce(- Vector2.right * movementForce);
     }
-
-    //private void Move()
-    //{
-    //    float xInput = Input.GetAxis("Horizontal");
-    //    float yInput = Input.GetAxis("Vertical");
-
-    //    float xForce = xInput * movementForce * Time.deltaTime;
-    //    float yForce = yInput * movementForce * Time.deltaTime;
-
-    //    Vector2 force = new Vector2(xForce, yForce);
-
-    //    rb.AddForce(force , ForceMode2D.Impulse);
-    //}
-
 
 }
 
