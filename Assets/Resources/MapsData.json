@@ -1,0 +1,16 @@
+{
+  "mapsdata": [
+    {
+      "mapNum": 1,
+      "mapSize": [100,80]
+    },
+    {
+      "mapNum": 2,
+      "mapSize": [140,120]
+    },
+    {
+      "mapNum": 3,
+      "mapSize": [80,160]
+    }
+  ]
+}

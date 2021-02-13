@@ -7,11 +7,11 @@
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "ec76bcb7-5950-4936-b8da-2c7060169974",
                     "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
+                    "processors": "NormalizeVector2",
+                    "interactions": "Press(pressPoint=1)"
                 },
                 {
                     "name": "MoveUp",
@@ -19,7 +19,7 @@
                     "id": "00f2a549-97e6-4672-8a58-ed69c864d1c8",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "MoveDown",
@@ -27,7 +27,7 @@
                     "id": "92cd746f-12e9-4099-9be8-f64de7d0ae25",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "MoveRight",
@@ -35,7 +35,7 @@
                     "id": "625a3f1c-555e-453a-b64f-abeb87684819",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "MoveLeft",
@@ -43,7 +43,7 @@
                     "id": "174cf8d4-4f3c-4550-bf57-da58b1d0e3da",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
