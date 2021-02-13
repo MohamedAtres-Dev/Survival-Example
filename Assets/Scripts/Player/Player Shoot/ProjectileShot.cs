@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileShot : MonoBehaviour
+public class ProjectileShot : Shot
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Launch(Weapon weapon, PoolManager pool)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameObject projectile = pool.GetPooledObject("Projectile");
+        projectile.transform.position = weapon.transform.position;
+        projectile.transform.rotation = weapon.transform.rotation;
+        projectile.SetActive(true);
+        projectile.GetComponent<ShotBehaviour>().Move(weapon.transform);
     }
 }

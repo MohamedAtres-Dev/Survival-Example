@@ -14,33 +14,25 @@
                     "interactions": "Press(pressPoint=1)"
                 },
                 {
-                    "name": "MoveUp",
+                    "name": "SwitchWeapon",
                     "type": "Button",
-                    "id": "00f2a549-97e6-4672-8a58-ed69c864d1c8",
+                    "id": "a97bebec-8ce6-4a6a-be9d-9d51bca32419",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
                 },
                 {
-                    "name": "MoveDown",
+                    "name": "Fire",
                     "type": "Button",
-                    "id": "92cd746f-12e9-4099-9be8-f64de7d0ae25",
+                    "id": "db946910-15f2-421b-9de3-8b4e765a382d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": ""
                 },
                 {
-                    "name": "MoveRight",
+                    "name": "Pause",
                     "type": "Button",
-                    "id": "625a3f1c-555e-453a-b64f-abeb87684819",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press"
-                },
-                {
-                    "name": "MoveLeft",
-                    "type": "Button",
-                    "id": "174cf8d4-4f3c-4550-bf57-da58b1d0e3da",
+                    "id": "282b1c44-d718-427d-801c-428b7fc87a69",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
@@ -104,45 +96,34 @@
                 },
                 {
                     "name": "",
-                    "id": "ed0631b4-c027-4156-82b0-46cc8cddf470",
-                    "path": "<Keyboard>/upArrow",
+                    "id": "ceb82363-9eba-45af-98da-52b137f27cbd",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveUp",
+                    "action": "SwitchWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "b5c23b5d-8019-45f9-8b2b-2264257df02e",
-                    "path": "<Keyboard>/downArrow",
+                    "id": "33784862-9c9b-4e76-be83-9f68630040cb",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveDown",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "e8fcf2eb-33b8-4441-ab50-f9fddc96a3f6",
-                    "path": "<Keyboard>/rightArrow",
+                    "id": "49318278-7479-4022-bdb8-45b639207f12",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "75a9f393-ce81-4c0f-9aa4-6fcddde1f2e2",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveLeft",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

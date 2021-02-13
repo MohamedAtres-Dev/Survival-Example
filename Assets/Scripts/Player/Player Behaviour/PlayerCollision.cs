@@ -3,11 +3,11 @@ using UnityEngine.Events;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public event UnityAction gameOverEvent = delegate { };
+    public static event UnityAction gameOverEvent = delegate { };
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("JumperEnemy") || collision.gameObject.CompareTag("MovableEnemy"))
         {
             Debug.Log("Game Over");
             gameOverEvent.Invoke();

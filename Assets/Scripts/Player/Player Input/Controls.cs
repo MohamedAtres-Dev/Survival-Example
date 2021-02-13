@@ -27,33 +27,25 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": ""Press(pressPoint=1)""
                 },
                 {
-                    ""name"": ""MoveUp"",
+                    ""name"": ""SwitchWeapon"",
                     ""type"": ""Button"",
-                    ""id"": ""00f2a549-97e6-4672-8a58-ed69c864d1c8"",
+                    ""id"": ""a97bebec-8ce6-4a6a-be9d-9d51bca32419"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
                 },
                 {
-                    ""name"": ""MoveDown"",
+                    ""name"": ""Fire"",
                     ""type"": ""Button"",
-                    ""id"": ""92cd746f-12e9-4099-9be8-f64de7d0ae25"",
+                    ""id"": ""db946910-15f2-421b-9de3-8b4e765a382d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": """"
                 },
                 {
-                    ""name"": ""MoveRight"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
-                    ""id"": ""625a3f1c-555e-453a-b64f-abeb87684819"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
-                    ""name"": ""MoveLeft"",
-                    ""type"": ""Button"",
-                    ""id"": ""174cf8d4-4f3c-4550-bf57-da58b1d0e3da"",
+                    ""id"": ""282b1c44-d718-427d-801c-428b7fc87a69"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
@@ -117,45 +109,34 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ed0631b4-c027-4156-82b0-46cc8cddf470"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""id"": ""ceb82363-9eba-45af-98da-52b137f27cbd"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MoveUp"",
+                    ""action"": ""SwitchWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b5c23b5d-8019-45f9-8b2b-2264257df02e"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""id"": ""33784862-9c9b-4e76-be83-9f68630040cb"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MoveDown"",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e8fcf2eb-33b8-4441-ab50-f9fddc96a3f6"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""id"": ""49318278-7479-4022-bdb8-45b639207f12"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MoveRight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""75a9f393-ce81-4c0f-9aa4-6fcddde1f2e2"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MoveLeft"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -167,10 +148,9 @@ public class @Controls : IInputActionCollection, IDisposable
         // GamePlay
         m_GamePlay = asset.FindActionMap("GamePlay", throwIfNotFound: true);
         m_GamePlay_Movement = m_GamePlay.FindAction("Movement", throwIfNotFound: true);
-        m_GamePlay_MoveUp = m_GamePlay.FindAction("MoveUp", throwIfNotFound: true);
-        m_GamePlay_MoveDown = m_GamePlay.FindAction("MoveDown", throwIfNotFound: true);
-        m_GamePlay_MoveRight = m_GamePlay.FindAction("MoveRight", throwIfNotFound: true);
-        m_GamePlay_MoveLeft = m_GamePlay.FindAction("MoveLeft", throwIfNotFound: true);
+        m_GamePlay_SwitchWeapon = m_GamePlay.FindAction("SwitchWeapon", throwIfNotFound: true);
+        m_GamePlay_Fire = m_GamePlay.FindAction("Fire", throwIfNotFound: true);
+        m_GamePlay_Pause = m_GamePlay.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -221,19 +201,17 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_GamePlay;
     private IGamePlayActions m_GamePlayActionsCallbackInterface;
     private readonly InputAction m_GamePlay_Movement;
-    private readonly InputAction m_GamePlay_MoveUp;
-    private readonly InputAction m_GamePlay_MoveDown;
-    private readonly InputAction m_GamePlay_MoveRight;
-    private readonly InputAction m_GamePlay_MoveLeft;
+    private readonly InputAction m_GamePlay_SwitchWeapon;
+    private readonly InputAction m_GamePlay_Fire;
+    private readonly InputAction m_GamePlay_Pause;
     public struct GamePlayActions
     {
         private @Controls m_Wrapper;
         public GamePlayActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_GamePlay_Movement;
-        public InputAction @MoveUp => m_Wrapper.m_GamePlay_MoveUp;
-        public InputAction @MoveDown => m_Wrapper.m_GamePlay_MoveDown;
-        public InputAction @MoveRight => m_Wrapper.m_GamePlay_MoveRight;
-        public InputAction @MoveLeft => m_Wrapper.m_GamePlay_MoveLeft;
+        public InputAction @SwitchWeapon => m_Wrapper.m_GamePlay_SwitchWeapon;
+        public InputAction @Fire => m_Wrapper.m_GamePlay_Fire;
+        public InputAction @Pause => m_Wrapper.m_GamePlay_Pause;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -246,18 +224,15 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMovement;
-                @MoveUp.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveUp;
-                @MoveUp.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveUp;
-                @MoveUp.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveUp;
-                @MoveDown.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveDown;
-                @MoveDown.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveDown;
-                @MoveDown.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveDown;
-                @MoveRight.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveRight;
-                @MoveRight.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveRight;
-                @MoveRight.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveRight;
-                @MoveLeft.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveLeft;
-                @MoveLeft.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveLeft;
-                @MoveLeft.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMoveLeft;
+                @SwitchWeapon.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnSwitchWeapon;
+                @SwitchWeapon.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnSwitchWeapon;
+                @SwitchWeapon.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnSwitchWeapon;
+                @Fire.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnFire;
+                @Fire.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnFire;
+                @Fire.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnFire;
+                @Pause.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_GamePlayActionsCallbackInterface = instance;
             if (instance != null)
@@ -265,18 +240,15 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
-                @MoveUp.started += instance.OnMoveUp;
-                @MoveUp.performed += instance.OnMoveUp;
-                @MoveUp.canceled += instance.OnMoveUp;
-                @MoveDown.started += instance.OnMoveDown;
-                @MoveDown.performed += instance.OnMoveDown;
-                @MoveDown.canceled += instance.OnMoveDown;
-                @MoveRight.started += instance.OnMoveRight;
-                @MoveRight.performed += instance.OnMoveRight;
-                @MoveRight.canceled += instance.OnMoveRight;
-                @MoveLeft.started += instance.OnMoveLeft;
-                @MoveLeft.performed += instance.OnMoveLeft;
-                @MoveLeft.canceled += instance.OnMoveLeft;
+                @SwitchWeapon.started += instance.OnSwitchWeapon;
+                @SwitchWeapon.performed += instance.OnSwitchWeapon;
+                @SwitchWeapon.canceled += instance.OnSwitchWeapon;
+                @Fire.started += instance.OnFire;
+                @Fire.performed += instance.OnFire;
+                @Fire.canceled += instance.OnFire;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -284,9 +256,8 @@ public class @Controls : IInputActionCollection, IDisposable
     public interface IGamePlayActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnMoveUp(InputAction.CallbackContext context);
-        void OnMoveDown(InputAction.CallbackContext context);
-        void OnMoveRight(InputAction.CallbackContext context);
-        void OnMoveLeft(InputAction.CallbackContext context);
+        void OnSwitchWeapon(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f3c3788e46cf244b6ee575b7d9cbd2, type: 3}
+  m_Name: PoolManager
+  m_EditorClassIdentifier: 
+  allObjects:
+  - pool: {fileID: 7534715567480949459, guid: d5ff786bdfffe1e4e917b6ec5d90d0d0, type: 3}
+    size: 20
+  - pool: {fileID: 7896905238909635174, guid: e7f841e8b7ca6224da50b61e4b4158f7, type: 3}
+    size: 20
+  - pool: {fileID: 2806594770487009762, guid: 7b63b9f676906e04187902c92eb086c8, type: 3}
+    size: 5
+  - pool: {fileID: 3317636778684733386, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
+    size: 5
+  isExpand: 0
+  pooledObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

@@ -6,13 +6,10 @@ using UnityEngine.Events;
 public class InputHandler : ScriptableObject , Controls.IGamePlayActions
 {
     #region Input Events
-    public event UnityAction moveRightEvent = delegate { };
-    public event UnityAction moveLeftEvent = delegate { };
-    public event UnityAction moveUpEvent = delegate { }; // Used to talk, pickup objects, interact with tools like the cooking cauldron
-    public event UnityAction moveDownEvent = delegate { }; // Used to bring up the inventory
     public event UnityAction fireEvent = delegate { };
     public event UnityAction switchWeaponEvent = delegate { };
     public event UnityAction<Vector2> moveVectorEvent = delegate { };
+    public event UnityAction pauseEvent = delegate { };
 
     private Controls playerInput;
     #endregion
@@ -35,33 +32,30 @@ public class InputHandler : ScriptableObject , Controls.IGamePlayActions
     #endregion
 
     #region Input Handle
-    public void OnMoveDown(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-            moveDownEvent.Invoke();
-    }
-
-    public void OnMoveLeft(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-            moveLeftEvent.Invoke();
-    }
+ 
 
     public void OnMovement(InputAction.CallbackContext context)
     {
         moveVectorEvent.Invoke(context.ReadValue<Vector2>());
     }
 
-    public void OnMoveRight(InputAction.CallbackContext context)
+
+    public void OnSwitchWeapon(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
-            moveRightEvent.Invoke();
+            switchWeaponEvent.Invoke();
     }
 
-    public void OnMoveUp(InputAction.CallbackContext context)
+    public void OnFire(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
-            moveUpEvent.Invoke();
+            fireEvent.Invoke();
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+            pauseEvent.Invoke();
     }
 
     #endregion
