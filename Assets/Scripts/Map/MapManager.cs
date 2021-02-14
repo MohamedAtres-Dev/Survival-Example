@@ -11,9 +11,6 @@ public class MapManager : MonoBehaviour
     private Dictionary<int, Map.MapData> _maps;
     private int randomNum;
 
-    //Invoke this event after set the tiles to spawn player and start the game
-    public event UnityAction mapIsLoaded = delegate { };
-
     //Invoke this to recalculate path for Enemy AI
     public static event UnityAction<int, int, float, float> generateEnemyPathEvent = delegate { };
     #endregion
@@ -52,7 +49,7 @@ public class MapManager : MonoBehaviour
             }
         }
 
-        mapIsLoaded.Invoke();
+        
         generateEnemyPathEvent.Invoke(rows, columns, -columns / 2, -rows / 2);
     }
     #endregion

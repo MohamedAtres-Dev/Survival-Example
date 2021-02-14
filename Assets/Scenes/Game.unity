@@ -167,75 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _poolManager: {fileID: 11400000, guid: 69a1e2f79046efe438a786247652c336, type: 2}
---- !u!1001 &226221969
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3317636778684733385, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_Mass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317636778684733385, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_LinearDrag
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317636778684733385, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317636778684733386, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_Name
-      value: MovableEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317636778684733390, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317636778684733390, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317636778684733390, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317636778684733390, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317636778684733390, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317636778684733390, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317636778684733390, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317636778684733390, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317636778684733390, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317636778684733390, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3317636778684733390, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6bb8a88b40f02e74cb66bbcdb80cbd6a, type: 3}
+  playerTransform: {fileID: 0}
+  spawnTime: 3
 --- !u!1 &512922251
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +341,7 @@ GameObject:
   - component: {fileID: 888787519}
   - component: {fileID: 888787518}
   - component: {fileID: 888787517}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,7 +655,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 4
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -741,7 +674,7 @@ MonoBehaviour:
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
@@ -834,7 +767,7 @@ MonoBehaviour:
   - {fileID: 1995513348}
   - {fileID: 1995513347}
   _inputHandler: {fileID: 11400000, guid: b918f13059cd3ff4db5ccf9d45b36109, type: 2}
-  refreshFireTime: 0.5
+  refreshFireTime: 0.1
 --- !u!212 &1995513346
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -933,9 +866,13 @@ PrefabInstance:
       propertyPath: rotatePlayerGFX
       value: 
       objectReference: {fileID: 1451366663}
+    - target: {fileID: 3732678251834126183, guid: 5a6723c92bd4127409f72d5e916f8323, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3732678251834126184, guid: 5a6723c92bd4127409f72d5e916f8323, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3732678251834126184, guid: 5a6723c92bd4127409f72d5e916f8323, type: 3}
       propertyPath: m_LocalPosition.x

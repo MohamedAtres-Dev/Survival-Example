@@ -11,8 +11,8 @@ public class Enemy : MonoBehaviour, IHealth
     [SerializeField] protected float maxHealth = 0f;
 
     protected Transform target = default;
-    protected Rigidbody2D rb2D = default;
-    protected bool isTargetInRange = false;
+    [NonSerialized] public Rigidbody2D rb2D = default;
+    [NonSerialized] public bool isTargetInRange = false;
 
     //Use this Velocity Vector to move Enemy
     [NonSerialized] public Vector3 velocity = default;
