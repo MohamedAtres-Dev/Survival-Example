@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class SpawnManager : MonoBehaviour
 {
     #region Fields
@@ -7,6 +8,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Transform playerTransform = default;
     [SerializeField] private float spawnTime = 4f;
 
+    
     #endregion
 
     #region monobehaviour
@@ -18,7 +20,7 @@ public class SpawnManager : MonoBehaviour
 
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
+        InvokeRepeating("Spawn", 1f, spawnTime);
     }
     #endregion
 
@@ -41,7 +43,22 @@ public class SpawnManager : MonoBehaviour
     private void GetEnemyFromPool(string name)
     {
         GameObject enemy = _poolManager.GetPooledObject(name);
-        enemy.transform.position = playerTransform.position + new Vector3(Random.Range(-10f , 10f) , Random.Range(-10f, 10f), 0);
+        
+        Vector3 postive = new Vector3(Random.Range(5f, 10f), Random.Range(5f, 10f), 0);
+        Vector3 negative = new Vector3(Random.Range(-10f, -5f), Random.Range(-10f, -5f), 0);
+
+        Vector3 addedPos;
+        int randPos = Random.Range(0, 1);
+        switch (randPos)
+        {
+            case 0: addedPos = postive;
+                break;
+            case 1: addedPos = negative;
+                break;
+            default: addedPos = postive;
+                break;
+        }
+        enemy.transform.position = playerTransform.position + addedPos;
         enemy.transform.rotation = Quaternion.identity;
         enemy.SetActive(true);
     }

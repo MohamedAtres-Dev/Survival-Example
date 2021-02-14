@@ -5,6 +5,7 @@ public class Weapon : MonoBehaviour
 {
     #region Fields
     [SerializeField] private PoolManager _poolManager = default;
+    public AudioManager _audioManger = default;
     [SerializeField] private Shot[] shots = default;
 
     [SerializeField] private InputHandler _inputHandler = default;
@@ -28,6 +29,11 @@ public class Weapon : MonoBehaviour
         _inputHandler.fireEvent -= FireWeapon;
         _inputHandler.switchWeaponEvent -= OnSwitchWeapon;
     }
+
+    //private void Start()
+    //{
+    //    _audioManger.Audio = GetComponent<AudioSource>();
+    //}
     #endregion
 
     #region Methods

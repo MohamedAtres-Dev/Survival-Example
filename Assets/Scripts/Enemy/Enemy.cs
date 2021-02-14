@@ -11,12 +11,16 @@ public class Enemy : MonoBehaviour, IHealth
     [SerializeField] protected ParticleSystem destroyEffect = default;
     protected ParticleSystem.MainModule particleSetting = default;
 
+    [Header("SO")]
     [SerializeField] private ShakePreset shakePreset = default;
+    [SerializeField] private AudioManager _audioManger = default;
 
-    //properties
+    public AudioClip clip = default;
+
+    [Space]
+    [Header("Variables")]
     protected float currentHealth = 0f;
     [SerializeField] protected float maxHealth = 0f;
-
     protected Transform target = default;
     [NonSerialized] public Rigidbody2D rb2D = default;
     [NonSerialized] public bool isTargetInRange = false;
@@ -138,11 +142,12 @@ public class Enemy : MonoBehaviour, IHealth
     {
         currentHealth -= dmg;
         if (currentHealth <= 0)
-        {
+        { 
+            _audioManger.PlaySound(clip);
             gameObject.SetActive(false);
         }
-
         Shaker.ShakeAll(shakePreset);
+
     }
 
     public void OnPathComplete(Path p)

@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     #region Fields
     [SerializeField] private GameObject deathPanel = default;
+    [SerializeField] private AudioManager _audioManager = default;
+
+    [SerializeField] private AudioClip deathClip = default;
     
     #endregion
 
@@ -20,6 +23,10 @@ public class GameManager : MonoBehaviour
         PlayerCollision.gameOverEvent -= OnPlayerDied;
     }
 
+    private void Start()
+    {
+        _audioManager.Audio = GetComponent<AudioSource>();
+    }
     #endregion
 
     #region Methods
@@ -31,10 +38,13 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerDied()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
         deathPanel.SetActive(true);
-        deathPanel.transform.DOPunchScale(new Vector3(0.4f, 0.4f, 0.4f), 1f, 2, 0.2f);
-
+        _audioManager.PlaySound(deathClip);
+        deathPanel.transform.DOPunchScale(new Vector3(0.4f, 0.4f, 0.4f), 1f, 2, 0.2f).OnComplete(() =>
+        {
+            //DO Something
+        });
     }
 
     #endregion

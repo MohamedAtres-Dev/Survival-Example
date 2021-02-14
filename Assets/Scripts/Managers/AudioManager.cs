@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+[CreateAssetMenu(fileName ="AudioManager" , menuName = "Singltons/Game Managers/Audio Manager")]
+public class AudioManager : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    //private static AudioManager _instance;
+    //public AudioManager Instance
+    //{
+    //    get
+    //    {
+    //        return _instance;
+    //    }
+    //}
+    //[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    //private static void Init()
+    //{
+    //    _instance = Resources.Load<AudioManager>("AudioManager");
+    //}
+
+    private AudioSource _audio;
+
+    public AudioSource Audio { get => _audio; set => _audio = value; }
+
+    public void PlaySound(AudioClip clip)
     {
-        
+        _audio.PlayOneShot(clip);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

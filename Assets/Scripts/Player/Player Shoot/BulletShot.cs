@@ -11,7 +11,8 @@ public class BulletShot :  Shot
         bullet.transform.rotation = weapon.transform.rotation;
         bullet.SetActive(true);
         bullet.GetComponent<ShotBehaviour>().Move(weapon.transform);
-        
-       
+
+        //Play Sounds
+        weapon._audioManger.PlaySound(clip);
     }
 }

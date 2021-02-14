@@ -104,7 +104,7 @@ public class PoolManager : ScriptableObject
 }
 
 [System.Serializable]
-public class ItemToPool
+public struct ItemToPool
 {
     public GameObject pool;
     public int size;
