@@ -22,6 +22,8 @@ public class MovableEnemy : Enemy
     public override void TakeDamage(float dmg)
     {
         base.TakeDamage(dmg);
+        particleSetting.startColor = new ParticleSystem.MinMaxGradient(Color.yellow);
+        Instantiate(destroyEffect, transform.position, Quaternion.identity);
     }
     #endregion
 }

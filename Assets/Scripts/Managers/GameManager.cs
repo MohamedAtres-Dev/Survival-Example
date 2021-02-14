@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         deathPanel.SetActive(true);
+        deathPanel.transform.DOPunchScale(new Vector3(0.4f, 0.4f, 0.4f), 1f, 2, 0.2f);
+
     }
 
     #endregion

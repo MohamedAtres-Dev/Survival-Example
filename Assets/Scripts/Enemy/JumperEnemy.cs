@@ -27,6 +27,8 @@ public class JumperEnemy : Enemy
     public override void TakeDamage(float dmg)
     {
         base.TakeDamage(dmg);
+        particleSetting.startColor = new ParticleSystem.MinMaxGradient(Color.red);
+        Instantiate(destroyEffect, transform.position, Quaternion.identity);
     }
     #endregion
 }

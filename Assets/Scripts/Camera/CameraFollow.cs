@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -6,11 +7,15 @@ public class CameraFollow : MonoBehaviour
     private Transform target = default;
     private Vector3 velocity = Vector3.zero;
 
+    
+
     [SerializeField] [Range(0.01f, 1f)] private float smoothSpeed = 0.15f;
     [SerializeField] private Vector3 offset = default;
+
     #endregion
 
     #region MonoBehaviour
+
     void Start()
     {
         //TODO : call this when instansiate the player first by using  events
@@ -28,4 +33,5 @@ public class CameraFollow : MonoBehaviour
 
     }
     #endregion
+
 }

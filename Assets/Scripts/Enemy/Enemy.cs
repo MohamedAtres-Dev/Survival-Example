@@ -1,11 +1,18 @@
 using UnityEngine;
 using Pathfinding;
 using System;
+using MilkShake;
 
 [RequireComponent(typeof(Seeker)) , RequireComponent(typeof(Rigidbody2D))]
 public class Enemy : MonoBehaviour, IHealth
 {
     #region Fields
+    //particles
+    [SerializeField] protected ParticleSystem destroyEffect = default;
+    protected ParticleSystem.MainModule particleSetting = default;
+
+    [SerializeField] private ShakePreset shakePreset = default;
+
     //properties
     protected float currentHealth = 0f;
     [SerializeField] protected float maxHealth = 0f;
@@ -36,7 +43,9 @@ public class Enemy : MonoBehaviour, IHealth
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
         _seeker = GetComponent<Seeker>();
-        rb2D = GetComponent<Rigidbody2D>();      
+        rb2D = GetComponent<Rigidbody2D>();
+
+        particleSetting = destroyEffect.main;
     }
 
     public virtual void FixedUpdate()
@@ -132,6 +141,8 @@ public class Enemy : MonoBehaviour, IHealth
         {
             gameObject.SetActive(false);
         }
+
+        Shaker.ShakeAll(shakePreset);
     }
 
     public void OnPathComplete(Path p)

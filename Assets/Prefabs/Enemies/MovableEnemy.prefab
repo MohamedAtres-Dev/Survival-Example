@@ -139,6 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c3775e83bf792479bf498012d40a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyEffect: {fileID: 4271250830239765512, guid: 1a8e9c78ab352784291ef8352c8d0beb, type: 3}
+  shakePreset: {fileID: 11400000, guid: 7fdfe6bc757660e42b70fe39b77f43ba, type: 2}
   maxHealth: 80
   movementSpeed: 4
 --- !u!1 &3317636779399303259
